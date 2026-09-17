@@ -18,9 +18,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v4
-
       - name: Install pakeges and build
         run: |
           sudo apt update
@@ -29,12 +26,8 @@ jobs:
           pip3 install --user --upgrade Cython==0.29.33 virtualenv
           pip3 install --user --upgrade buildozer
 
-          # copy sdk from Setup Android SDK to buildozer for use it
-          mkdir -p $HOME/.buildozer/android/platform/android-sdk/licenses
-          cp -r $ANDROID_HOME/licenses/* $HOME/.buildozer/android/platform/android-sdk/licenses/
-
           export PATH=$HOME/.local/bin:$PATH
-          buildozer android debug
+          yes y | buildozer android debug
 
       - name: Get APK file
         uses: actions/upload-artifact@v7
