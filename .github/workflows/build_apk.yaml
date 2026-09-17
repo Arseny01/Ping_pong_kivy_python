@@ -29,6 +29,10 @@ jobs:
           pip3 install --user --upgrade Cython==0.29.33 virtualenv
           pip3 install --user --upgrade buildozer
 
+          # copy sdk from Setup Android SDK to buildozer for use it
+          mkdir -p $HOME/.buildozer/android/platform/android-sdk/licenses
+          cp -r $ANDROID_HOME/licenses/* $HOME/.buildozer/android/platform/android-sdk/licenses/
+
           export PATH=$HOME/.local/bin:$PATH
           buildozer android debug
 
