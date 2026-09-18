@@ -27,7 +27,7 @@ jobs:
           pip3 install --user --upgrade buildozer
 
           export PATH=$HOME/.local/bin:$PATH
-          yes y | buildozer android debug
+          buildozer android debug --accept-sdk-license
 
       - name: Get APK file
         uses: actions/upload-artifact@v7
