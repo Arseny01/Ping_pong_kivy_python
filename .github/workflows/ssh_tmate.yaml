@@ -1,0 +1,16 @@
+name: SSH tmate
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  ssh_tmate:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Install tmate
+        run: sudo apt-get install tmate
+
+      - name: Run tmate
+        run: tmate -F
