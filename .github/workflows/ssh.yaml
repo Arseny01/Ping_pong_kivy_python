@@ -1,0 +1,13 @@
+name: SSH
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  ssh:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
